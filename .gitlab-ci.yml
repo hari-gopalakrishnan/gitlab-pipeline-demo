@@ -18,9 +18,9 @@ run_tests:
 
 build_image:
   stage: build
-  image: docker
+  image: docker:20.10.16
   services:
-    - docker:dind
+    - docker:20.10.16-dind
   variables:
     # DOCKER_HOST: tcp://thedockerhost:2375/
     # DOCKER_DRIVER: overlay2
