@@ -18,11 +18,14 @@ run_tests:
 
 build_image:
   stage: build
-  image: docker:20.10.16
+  image: docker
   services:
-    - docker:20.10.16-dind
+    - docker:dind
   variables:
-    DOCKER_TLS_CERTDIR: "/certs"
+    # DOCKER_HOST: tcp://thedockerhost:2375/
+    # DOCKER_DRIVER: overlay2
+    # DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_TLS_CERTDIR: ""
   before_script:
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
   script:
